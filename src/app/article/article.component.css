@@ -1,31 +1,51 @@
+/* Styles for the <article> container */
 article {
     border: 2px solid lightgrey;
+    /* Adds a light grey border for visual separation */
     box-shadow: 2px 2px 2px lightgrey;
+    /* Creates a subtle shadow for depth */
     padding: 10px;
+    /* Adds inner spacing around content */
     min-width: 250px;
+    /* Ensures the article does not shrink below a readable width */
     max-width: 600px;
+    /* Restricts the article to a manageable width for readability */
     margin: 10px auto;
+    /* Centers the article with some vertical spacing */
 }
 
+/* Responsive image styling */
 img {
     max-width: 100%;
+    /* Ensures images do not overflow their container */
     height: auto;
+    /* Maintains aspect ratio of images */
 }
 
+/* Center-align content inside <figure> */
 figure {
     text-align: center;
+    /* Centers the figure and its content */
 }
 
+/* Styling for <figcaption> inside <figure> */
 figcaption {
     font-style: italic;
+    /* Distinguishes captions with italicized text */
     text-align: center;
+    /* Centers the caption text */
 }
 
+/* Paragraph styling within <article> */
 article p {
     text-align: justify;
+    /* Aligns text for a clean block appearance */
 }
 
+/* Styling for the footer inside <article> */
 article footer {
     font-style: italic;
+    /* Adds emphasis to the footer content */
     font-variant: small-caps;
+    /* Formats text in small caps for a unique typographic style */
 }

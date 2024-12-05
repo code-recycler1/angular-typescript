@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-article',
+  standalone: true,
   imports: [],
   templateUrl: './article.component.html',
-  styleUrl: './article.component.css'
+  styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
 
