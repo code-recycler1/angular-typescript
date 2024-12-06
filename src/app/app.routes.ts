@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 // Import the components that will be associated with specific routes
 import { ArticleComponent } from './article/article.component';
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
 
 // Define the application's route configuration
 export const routes: Routes = [
@@ -16,5 +17,10 @@ export const routes: Routes = [
     {
         path: 'article', // URL path for navigating to the article page
         component: ArticleComponent // Component to render for this route
+    },
+    // Route for the 'contact' path that maps to the ContactComponent
+    {
+        path: 'contact', // URL path for navigating to the contact page
+        component: ContactComponent // Component to render for this route
     },
 ];
