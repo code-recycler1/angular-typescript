@@ -35,6 +35,7 @@ export class HomeComponent {
   // Angular lifecycle hook called once after the component is initialized
   ngOnInit(): void {
     // Use the ArticleService to fetch articles and assign them to the articles property
-    this.articles = this.articleService.getArticles();
+    // this.articles = this.articleService.getArticles();
+    this.articles = this.articleService.getRecentArticles();
   }
 }

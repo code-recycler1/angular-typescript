@@ -2,3 +2,6 @@
 @for (article of articles; track $index) {
 <app-article [article]="article"></app-article>
 }
+@if (articles.length == 0) {
+<p>No articles found</p>
+}

@@ -30,8 +30,8 @@ export class ArticleService {
       quidem dolor maxime enim debitis omnis nemo facilis sequi autem? Quae tenetur, repellat vero deleniti vitae
       dolores? Cum tempore, mollitia provident placeat fugit earum, sint, quae iusto optio ea officiis consectetur sit
       necessitatibus itaque explicabo?`,
-      author: "Michaël Cloots",
-      publishDate: "28/11/2020"
+      author: "John Doe",
+      publishDate: "2024-12-04"
     };
 
     // Create the second article object with its properties
@@ -45,8 +45,8 @@ export class ArticleService {
       quidem dolor maxime enim debitis omnis nemo facilis sequi autem? Quae tenetur, repellat vero deleniti vitae
       dolores? Cum tempore, mollitia provident placeat fugit earum, sint, quae iusto optio ea officiis consectetur sit
       necessitatibus itaque explicabo?`,
-      author: "Florian Smeyers",
-      publishDate: "30/11/2020"
+      author: "Jane Doe",
+      publishDate: "2024-11-14"
     };
 
     // Add both articles to the articles array
@@ -55,5 +55,27 @@ export class ArticleService {
 
     // Return the array of articles to the caller
     return articles;
+  }
+
+  // Method to retrieve articles published within one week of today
+  getRecentArticles(): Article[] {
+    // Fetch all articles
+    const articles = this.getArticles();
+
+    // Get the current date
+    const today = new Date();
+
+    // Calculate the date one week ago
+    const oneWeekAgo = new Date();
+    oneWeekAgo.setDate(today.getDate() - 7);
+
+    // Filter articles to include only those with a publish date within the past week
+    const recentArticles = articles.filter(article => {
+      const publishDate = new Date(article.publishDate);
+      return publishDate >= oneWeekAgo && publishDate <= today;
+    });
+
+    // Return the filtered list of recent articles
+    return recentArticles;
   }
 }
