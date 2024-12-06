@@ -1,15 +1,25 @@
 @if(article) {
-<article>
-    <h1>{{article.title}}</h1>
-    <h4>{{article.subtitle}}</h4>
-    <figure>
-        <img src="{{article.imageUrl}}" alt="{{article.imageCaption}}">
-        <figcaption>{{article.imageCaption}}</figcaption>
+<article class="flex flex-col justify-between h-full bg-white border-gray-200 border-2 p-6 shadow">
+    <h1 class="text-4xl my-3">{{article.title}}</h1>
+    <h4 class="text-xl my-3">{{article.subtitle}}</h4>
+    <figure class="self-center my-3">
+        <img class="max-w-full h-auto" src="{{article.imageUrl}}" alt="{{article.imageCaption}}">
+        <figcaption class="italic text-center">{{article.imageCaption}}</figcaption>
     </figure>
-    <p>
+    @if(!isDetail) {
+    <p class="text-justify my-3">
         {{article.content}}
     </p>
-    <footer>
+    } @else {
+    <p class="text-justify my-3">
+        {{article.content}}
+    </p>
+    }
+    <p class="py-2">
+        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+            (click)="detail(article.id)">Read more</button>
+    </p>
+    <footer class="italic uppercase">
         <p>Author: {{article.author}}, Published: {{article.publishDate}}</p>
     </footer>
 </article>

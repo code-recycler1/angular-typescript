@@ -5,6 +5,7 @@ import { Routes } from '@angular/router';
 import { ArticleComponent } from './article/article.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 // Define the application's route configuration
 export const routes: Routes = [
@@ -17,6 +18,11 @@ export const routes: Routes = [
     {
         path: 'article', // URL path for navigating to the article page
         component: ArticleComponent // Component to render for this route
+    },
+    // Route for the 'article/:id' path that maps to the ArticleDetailComponent
+    {
+        path: 'article/:id', // Dynamic route that captures the article ID (e.g., 'article/1')
+        component: ArticleDetailComponent // Component to render for this route (Article detail page)
     },
     // Route for the 'contact' path that maps to the ContactComponent
     {

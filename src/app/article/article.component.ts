@@ -2,6 +2,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 // Import the Article interface or class to type-check the input property
 import { Article } from '../article';
+import { Router } from '@angular/router';
 
 // Decorator to define metadata for the ArticleComponent
 @Component({
@@ -26,11 +27,21 @@ export class ArticleComponent implements OnInit {
   // The `!` non-null assertion operator indicates that this property will always be initialized by the parent
   @Input() article!: Article;
 
+  // Input property to indicate whether the component is displaying a detailed view or not
+  @Input() isDetail: boolean = false;
+
   // Constructor for the component, used for dependency injection (empty in this case)
-  constructor() { }
+  constructor(private router: Router) { }
 
   // Angular lifecycle hook called once after the component's data-bound properties are initialized
   ngOnInit(): void {
     // Logic to run when the component is initialized (currently empty)
+    // Additional initialization logic could be added here if needed
+  }
+
+  // Method to navigate to the article detail page
+  detail(id: number): void {
+    // Use Angular's router to navigate to the article detail route, passing the article ID
+    this.router.navigate(['/article', id]); // Navigates to the route '/article/{id}' for the given article
   }
 }
