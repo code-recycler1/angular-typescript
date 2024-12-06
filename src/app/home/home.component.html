@@ -1,2 +1,4 @@
 <h1>Welcome home</h1>
-<p>This is the homepage of our news app!</p>
+@for (article of articles; track $index) {
+<app-article [article]="article"></app-article>
+}
