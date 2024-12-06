@@ -1,0 +1,49 @@
+/* Navigation list container */
+nav ul {
+    display: flex;
+    /* Arranges navigation items horizontally using Flexbox */
+    list-style-type: none;
+    /* Removes default bullet points from the list */
+    padding: 0px;
+    /* Eliminates default padding for the list container */
+}
+
+/* Individual list items in the navigation */
+nav li {
+    flex: 1 1 auto;
+    /* Allows each list item to grow/shrink evenly */
+    display: flex;
+    /* Ensures child elements (e.g., <a>) can flex within the list item */
+}
+
+/* Navigation links styling */
+nav a {
+    flex: 1 1 auto;
+    /* Ensures links occupy available space evenly */
+    text-decoration: none;
+    /* Removes default underlining for links */
+    text-align: center;
+    /* Centers text within each link */
+    padding: 20px;
+    /* Adds space around the text for a larger clickable area */
+    background-color: lightgrey;
+    /* Sets a neutral background for links */
+    color: black;
+    /* Uses black text for readability */
+}
+
+/* Active link styling */
+nav a.active {
+    background-color: lightsalmon;
+    /* Highlights the active link with a distinct color */
+    color: black;
+    /* Keeps text readable against the background */
+}
+
+/* Hover effect for navigation links */
+nav a:hover {
+    color: lightgrey;
+    /* Changes text color on hover for contrast */
+    background-color: grey;
+    /* Darkens the background to indicate hover state */
+}

@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 // Import the ArticleComponent to be used within the app
 import { ArticleComponent } from './article/article.component';
+// Import the MenuComponent to be used within the app
+import { MenuComponent } from "./menu/menu.component";
 
 // Decorator to define the metadata for the root AppComponent
 @Component({
@@ -14,7 +16,7 @@ import { ArticleComponent } from './article/article.component';
   standalone: true,
 
   // Array of other components or modules to be imported for this component
-  imports: [RouterOutlet, ArticleComponent],
+  imports: [RouterOutlet, ArticleComponent, MenuComponent],
 
   // Path to the HTML template that defines the view for this component
   templateUrl: './app.component.html',
