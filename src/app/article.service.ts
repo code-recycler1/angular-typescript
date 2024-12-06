@@ -50,13 +50,26 @@ export class ArticleService {
     this.articles.push(article2);
   }
 
-  // Method to retrieve a list of all articles
+  /**
+   * Retrieves a list of all articles.
+   * 
+   * This method returns all articles currently stored in the service.
+   * 
+   * @returns {Article[]} An array of articles.
+   */
   getArticles(): Article[] {
     // Return the array of articles to the caller
     return this.articles;
   }
 
-  // Method to retrieve articles published within one week of today
+  /**
+ * Retrieves a list of articles that were published within one week of today.
+ * 
+ * This method filters all available articles to only include those with a 
+ * publish date within the last 7 days, based on the current date.
+ * 
+ * @returns {Article[]} An array of articles published within the last week.
+ */
   getRecentArticles(): Article[] {
     // Fetch all articles
     const articles = this.getArticles();
@@ -80,8 +93,15 @@ export class ArticleService {
     return recentArticles;
   }
 
-  // Method to retrieve a single article by its unique ID
-  // If no article with the given ID is found, returns null.
+  /**
+   * Retrieves a single article by its unique ID.
+   * 
+   * This method searches the articles collection and returns the article 
+   * that matches the given ID. If no matching article is found, it returns null.
+   * 
+   * @param {number} id - The unique ID of the article to retrieve.
+   * @returns {Article | null} The article with the given ID, or null if not found.
+   */
   getArticleById(id: number): Article | null {
     return this.articles.find(a => a.id === id) || null;
   }
