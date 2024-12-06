@@ -8,17 +8,21 @@
     </figure>
     @if(!isDetail) {
     <p class="text-justify my-3">
-        {{article.content}}
+        {{article.content | shortenContent : 250}}
+    </p>
+    <p class="py-2">
+        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+            (click)="detail(article.id)">Read more</button>
     </p>
     } @else {
     <p class="text-justify my-3">
         {{article.content}}
     </p>
-    }
     <p class="py-2">
-        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-            (click)="detail(article.id)">Read more</button>
+        <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goBack()">Go
+            Back</button>
     </p>
+    }
     <footer class="italic uppercase">
         <p>Author: {{article.author}}, Published: {{article.publishDate}}</p>
     </footer>
