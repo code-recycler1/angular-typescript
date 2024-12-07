@@ -2,11 +2,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 // Import the Article interface or class to type-check the input property
 import { Article } from '../article';
+// Import Router for navigation
 import { Router } from '@angular/router';
-// Import Location service to navigate back to the previous page
-import { Location } from '@angular/common';
+// CommonModule for Angular directives and Location service
+import { CommonModule, Location } from '@angular/common';
+// Custom pipe for truncating content
 import { ShortenContentPipe } from '../shorten-content.pipe';
+// Custom pipe for capitalizing text
 import { CapitalizePipe } from '../capitalize.pipe';
+// FormsModule for two-way data binding
+import { FormsModule } from '@angular/forms';
 
 // Decorator to define metadata for the ArticleComponent
 @Component({
@@ -17,7 +22,7 @@ import { CapitalizePipe } from '../capitalize.pipe';
   standalone: true,
 
   // Array of other modules or components to be imported for this component
-  imports: [ShortenContentPipe, CapitalizePipe],
+  imports: [ShortenContentPipe, CapitalizePipe, FormsModule, CommonModule],
 
   // Path to the HTML template file that defines the view for this component
   templateUrl: './article.component.html',
@@ -34,6 +39,9 @@ export class ArticleComponent implements OnInit {
   // Input property to indicate whether the component is displaying a detailed view or not
   @Input() isDetail: boolean = false;
 
+  // A boolean flag used to toggle the visibility of a paragraph based on a checkbox.
+  showParagraph: boolean = false;
+
   // Constructor for the component, used for dependency injection (injecting Location for going back)
   constructor(private router: Router, private location: Location) { }
 
@@ -43,14 +51,29 @@ export class ArticleComponent implements OnInit {
     // Additional initialization logic could be added here if needed
   }
 
-  // Method to navigate to the article detail page
+  /**
+   * Navigates to the detailed view of an article.
+   * @param id - The ID of the article to navigate to
+   */
   detail(id: number): void {
     // Use Angular's router to navigate to the article detail route, passing the article ID
     this.router.navigate(['/article', id]); // Navigates to the route '/article/{id}' for the given article
   }
 
-  // Method to navigate back to the previous page using the Location service
+  /**
+   * Navigates back to the previous page using the browser's history.
+   */
   goBack(): void {
-    this.location.back(); // Goes back to the previous page in the browser's history
+    this.location.back();
+  }
+
+  /**
+   * Opens the specified image URL in a new browser tab.
+   * @param imageUrl - The URL of the image to open
+  */
+  showImage(imageUrl: string): void {
+    if (imageUrl) {
+      window.open(imageUrl, '_blank');
+    }
   }
 }

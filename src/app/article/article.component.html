@@ -3,7 +3,8 @@
     <h1 class="text-4xl my-3">{{article.title}}</h1>
     <h4 class="text-xl my-3">{{article.subtitle}}</h4>
     <figure class="self-center my-3">
-        <img class="max-w-full h-auto" src="{{article.imageUrl}}" alt="{{article.imageCaption}}">
+        <img class="max-w-full h-auto" src="{{article.imageUrl}}" alt="{{article.imageCaption}}"
+            (click)="showImage(article.imageUrl)">
         <figcaption class="italic text-center">{{article.imageCaption}}</figcaption>
     </figure>
     @if(!isDetail) {
@@ -23,7 +24,14 @@
             Back</button>
     </p>
     }
-    <footer class="italic uppercase">
+    <p>
+        <input type="checkbox" [(ngModel)]="showParagraph" />
+        Show/Hide the paragraph below
+    </p>
+    <p *ngIf="showParagraph" class="py-2">
+        This is a conditional paragraph that appears or disappears based on the checkbox status.
+    </p>
+    <footer class="italic uppercase py-2">
         <p>Author: {{article.author}}, Published: {{article.publishDate}}</p>
     </footer>
 </article>
