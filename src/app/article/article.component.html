@@ -12,27 +12,42 @@
         {{article.content | shortenContent : 250 | capitalize}}
     </p>
     <p class="py-2">
-        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-            (click)="detail(article.id)">Read more</button>
+        <button [ngClass]="[currentButtonConfig.bgClass, 'text-white font-bold py-2 px-4 rounded']"
+            (click)="detail(article.id)">
+            Read more
+        </button>
     </p>
     } @else {
     <p class="text-justify my-3">
         {{article.content | capitalize}}
     </p>
     <p class="py-2">
-        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" (click)="goBack()">Go
-            Back</button>
+        <button [ngClass]="[currentButtonConfig.bgClass, 'text-white font-bold py-2 px-4 rounded']" (click)="goBack()">
+            Go Back
+        </button>
     </p>
     }
-    <p>
-        <input type="checkbox" [(ngModel)]="showParagraph" />
-        Show/Hide the paragraph below
-    </p>
-    <p *ngIf="showParagraph" class="py-2">
-        This is a conditional paragraph that appears or disappears based on the checkbox status.
-    </p>
+
+    <div class="py-2">
+        <label class="block mb-2">Select Color:</label>
+        <select [(ngModel)]="color" class="border rounded p-2">
+            @for (option of colorOptions; track option) {
+            <option [value]="option">{{option.charAt(0).toUpperCase() + option.slice(1)}}</option>
+            }
+        </select>
+    </div>
+
+    <div class="py-2">
+        <label class="inline-flex items-center">
+            <input type="checkbox" [(ngModel)]="showSecondDiv" class="form-checkbox h-5 w-5 text-orange-500">
+            <span class="ml-2">Show/Hide Author and Publish Date</span>
+        </label>
+    </div>
+
+    @if(showSecondDiv) {
     <footer class="italic uppercase py-2">
         <p>Author: {{article.author}}, Published: {{article.publishDate}}</p>
     </footer>
+    }
 </article>
 }

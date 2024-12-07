@@ -42,6 +42,17 @@ export class ArticleComponent implements OnInit {
   // A boolean flag used to toggle the visibility of a paragraph based on a checkbox.
   showParagraph: boolean = false;
 
+  showSecondDiv: boolean = false;
+  color: string = 'orange';
+  colorOptions: string[] = ['orange', 'green', 'blue'];
+
+  // Define a type for button configurations
+  buttonConfig = {
+    orange: { bgClass: 'bg-orange-500 hover:bg-orange-700' },
+    green: { bgClass: 'bg-green-500 hover:bg-green-700' },
+    blue: { bgClass: 'bg-blue-500 hover:bg-blue-700' }
+  };
+
   // Constructor for the component, used for dependency injection (injecting Location for going back)
   constructor(private router: Router, private location: Location) { }
 
@@ -75,5 +86,10 @@ export class ArticleComponent implements OnInit {
     if (imageUrl) {
       window.open(imageUrl, '_blank');
     }
+  }
+
+  // Getter to retrieve current button configuration
+  get currentButtonConfig() {
+    return this.buttonConfig[this.color as keyof typeof this.buttonConfig];
   }
 }
