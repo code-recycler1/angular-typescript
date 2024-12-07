@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 // Import Location service to navigate back to the previous page
 import { Location } from '@angular/common';
 import { ShortenContentPipe } from '../shorten-content.pipe';
+import { CapitalizePipe } from '../capitalize.pipe';
 
 // Decorator to define metadata for the ArticleComponent
 @Component({
@@ -16,7 +17,7 @@ import { ShortenContentPipe } from '../shorten-content.pipe';
   standalone: true,
 
   // Array of other modules or components to be imported for this component
-  imports: [ShortenContentPipe],
+  imports: [ShortenContentPipe, CapitalizePipe],
 
   // Path to the HTML template file that defines the view for this component
   templateUrl: './article.component.html',

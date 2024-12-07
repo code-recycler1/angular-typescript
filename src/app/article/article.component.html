@@ -8,7 +8,7 @@
     </figure>
     @if(!isDetail) {
     <p class="text-justify my-3">
-        {{article.content | shortenContent : 250}}
+        {{article.content | shortenContent : 250 | capitalize}}
     </p>
     <p class="py-2">
         <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
@@ -16,7 +16,7 @@
     </p>
     } @else {
     <p class="text-justify my-3">
-        {{article.content}}
+        {{article.content | capitalize}}
     </p>
     <p class="py-2">
         <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" (click)="goBack()">Go

@@ -16,7 +16,7 @@ import { MenuComponent } from "./menu/menu.component";
   standalone: true,
 
   // Array of other components or modules to be imported for this component
-  imports: [RouterOutlet, ArticleComponent, MenuComponent],
+  imports: [RouterOutlet, MenuComponent],
 
   // Path to the HTML template that defines the view for this component
   templateUrl: './app.component.html',

@@ -8,8 +8,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShortenContentPipe implements PipeTransform {
 
-  // The transform method is called whenever the pipe is used in a template
-  // It takes a string value to be shortened and an optional numberOfCharacters parameter to define the maximum length
+  /**
+   * The transform method is called whenever the pipe is used in a template.
+   * It shortens a string to a specified maximum length and appends an ellipsis (" ...") if truncated.
+   *
+   * @param {string} value - The string to be transformed.
+   * @param {number} [numberOfCharacters] - Optional. The maximum length of the string before truncation.
+   *                                         Defaults to 250 if not provided.
+   * @returns {string} The shortened string, or the original string if it is within the maximum length.
+   */
   transform(value: string, numberOfCharacters?: number): string {
 
     // If the value length is smaller than the specified number of characters (or default 250),
@@ -22,5 +29,4 @@ export class ShortenContentPipe implements PipeTransform {
       return value.slice(0, numberOfCharacters ?? 250) + " ...";
     }
   }
-
 }
