@@ -8,7 +8,8 @@
             "imageCaption": "caption image",
             "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas sequi voluptatum pariatur! Quae cumque quidem dolor maxime enim debitis omnis nemo facilis sequi autem? Quae tenetur, repellat vero deleniti vitae dolores? Cum tempore, mollitia provident placeat fugit earum, sint, quae iusto optio ea officiis consectetur sit necessitatibus itaque explicabo?",
             "author": "John Doe",
-            "publishDate": "2024-12-04"
+            "publishDate": "2024-12-04",
+            "categoryId": 1
         },
         {
             "id": 2,
@@ -18,7 +19,22 @@
             "imageCaption": "caption image",
             "content": "2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas sequi voluptatum pariatur! Quae cumque quidem dolor maxime enim debitis omnis nemo facilis sequi autem? Quae tenetur, repellat vero deleniti vitae dolores? Cum tempore, mollitia provident placeat fugit earum, sint, quae iusto optio ea officiis consectetur sit necessitatibus itaque explicabo?",
             "author": "Jane Doe",
-            "publishDate": "2024-11-14"
+            "publishDate": "2024-11-14",
+            "categoryId": 2
         }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "sport"
+      },
+      {
+        "id": 2,
+        "name": "economy"
+      },
+      {
+        "id": 3,
+        "name": "politics"
+      }
     ]
 }
