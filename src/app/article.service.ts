@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Article } from './article';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, switchMap, timer } from 'rxjs';
 
 // Use the Injectable decorator to define the ArticleService as a dependency-injectable service
 @Injectable({
@@ -34,7 +34,7 @@ export class ArticleService {
    * });
    */
   getArticles(): Observable<Article[]> {
-    return this.httpClient.get<Article[]>("http://localhost:3000/articles");
+    return timer(1, 3000).pipe(switchMap(() => this.httpClient.get<Article[]>("http://localhost:3000/articles")));
   }
 
   /**
