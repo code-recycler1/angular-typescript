@@ -6,6 +6,8 @@ import { ArticleComponent } from './article/article.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryFormComponent } from './category-form/category-form.component';
 
 // Define the application's route configuration
 export const routes: Routes = [
@@ -29,4 +31,14 @@ export const routes: Routes = [
         path: 'contact', // URL path for navigating to the contact page
         component: ContactComponent // Component to render for this route
     },
+    // Route for the 'admin/category' path that maps to the CategoryListComponent
+    {
+        path: 'admin/category', // URL path for navigating to the admin catergory page
+        component: CategoryListComponent // Component to render for this route
+    },
+    // Route for the 'admin/category/form' path that maps to the CategoryFormComponent
+    {
+        path: 'admin/category/form', // URL path for navigating to the admin catergory form page
+        component: CategoryFormComponent // Component to render for this route
+    }
 ];
