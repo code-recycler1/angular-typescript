@@ -26,6 +26,8 @@ export class MenuComponent implements OnInit {
 
   // Indicates whether the hamburger menu is currently open or closed
   hamburgerOpen = false;
+  // Indicates whether the admin dropdown menu is currently open or closed
+  adminDropdownOpen = false;
 
   // Injects the Angular Router for navigation purposes
   constructor(private router: Router) { }
@@ -34,16 +36,16 @@ export class MenuComponent implements OnInit {
   }
 
   /**
- * Toggles the state of the hamburger menu between open and closed.
- */
+   * Toggles the state of the hamburger menu between open and closed.
+   */
   toggleHamburger(): void {
     this.hamburgerOpen = !this.hamburgerOpen;
   }
 
   /**
- * Closes the hamburger menu if it is open.
- * Typically called when an item in the menu is clicked.
- */
+   * Closes the hamburger menu if it is open.
+   * Typically called when an item in the menu is clicked.
+   */
   onHamburgerItemClick() {
     if (this.hamburgerOpen) {
       this.hamburgerOpen = false;
@@ -51,10 +53,25 @@ export class MenuComponent implements OnInit {
   }
 
   /**
- * Navigates to a specified path and closes the hamburger menu.
- * @param path - The path to navigate to.
- */
+   * Toggles the state of the admin dropdown menu between open and closed.
+   */
+  onAdminDropDownClick() {
+    this.adminDropdownOpen = !this.adminDropdownOpen;
+  }
+
+  /**
+   * Closes the admin dropdown menu if it is open.
+   */
+  closeAdminDropDown() {
+    this.adminDropdownOpen = false;
+  }
+
+  /**
+   * Navigates to a specified path and closes the hamburger menu.
+   * @param path - The path to navigate to.
+   */
   navigateTo(path: string) {
+    this.closeAdminDropDown();
     this.hamburgerOpen = false;
     this.router.navigate([path]);
   }
