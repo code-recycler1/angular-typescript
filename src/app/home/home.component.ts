@@ -6,6 +6,8 @@ import { Article } from '../article';
 import { ArticleService } from '../article.service';
 // Import the ArticleComponent to display individual articles
 import { ArticleComponent } from '../article/article.component';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 // Decorator to define metadata for the HomeComponent
 @Component({
@@ -16,7 +18,7 @@ import { ArticleComponent } from '../article/article.component';
   standalone: true,
 
   // Array of other components or modules to be imported for use in this component
-  imports: [ArticleComponent],
+  imports: [ArticleComponent, CommonModule],
 
   // Path to the HTML template that defines the structure and content of this component's view
   templateUrl: './home.component.html',
@@ -27,7 +29,7 @@ import { ArticleComponent } from '../article/article.component';
 // Main class for the HomeComponent, which represents the home page of the application
 export class HomeComponent {
   // Property to hold the list of articles retrieved from the ArticleService
-  articles: Article[] = [];
+  articles$: Observable<Article[]> = new Observable<Article[]>();
 
   // Constructor that injects the ArticleService for dependency management
   constructor(private articleService: ArticleService) { }
@@ -35,7 +37,7 @@ export class HomeComponent {
   // Angular lifecycle hook called once after the component is initialized
   ngOnInit(): void {
     // Use the ArticleService to fetch articles and assign them to the articles property
-    this.articles = this.articleService.getArticles();
-    // this.articles = this.articleService.getRecentArticles();
+    this.articles$ = this.articleService.getArticles();
+    // this.articles$ = this.articleService.getRecentArticles();
   }
 }

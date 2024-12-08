@@ -40,13 +40,8 @@ export class ArticleDetailComponent implements OnInit {
 
     // Check if an article ID is available in the URL
     if (articleId != null) {
-      // Fetch the article using the ArticleService by passing the article ID
-      let articleTemp = this.articleService.getArticleById(+articleId) ?? null;
-
-      // If the article is found, assign it to the article property
-      if (articleTemp != null) {
-        this.article = articleTemp;
-      }
+      this.articleService.getArticleById(+articleId).subscribe(result =>
+        this.article = result);
     }
   }
 }
